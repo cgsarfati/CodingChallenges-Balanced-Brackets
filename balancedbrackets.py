@@ -54,6 +54,17 @@ def has_balanced_brackets(phrase):
     string contains balanced (), {}, [], and/or <>.
     """
 
+    # store open/close brackets in a dict: K is close, V is open
+    # convert openers to set for O1 runtime search
+
+    # implement stack r/t FILO fitting balanced dynamic
+    # if open, append to stack
+    # if close
+      # if empty stack, fail fast
+      # if stack[-1] corresponds to closed bracket in dict, rm [-1]
+    # after loop, if stack empty, means balanced
+
+
 if __name__ == '__main__':
     import doctest
     if doctest.testmod().failed == 0:
