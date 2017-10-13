@@ -64,6 +64,39 @@ def has_balanced_brackets(phrase):
       # if stack[-1] corresponds to closed bracket in dict, rm [-1]
     # after loop, if stack empty, means balanced
 
+    # keep track of open/close relation
+    closers = {")": "(", "]": "[", "}": "{", ">": "<"}
+
+    # use set for 0(1) runtime search of openers
+    openers = set(closers.values())
+
+    # implement Stack to store openers, and rm them depending on closers
+    openers_seen = []
+
+    # loop through phrase to target brackets
+    for char in phrase:
+
+        # openers
+        if char in openers:
+            openers_seen.append(char)
+
+        # closers
+        elif char in closers:
+
+            # FAIL-FAST: if empty stack, means closer too early
+            if openers_seen == []:
+                return False
+
+            # if correct, rm last bracket + continue traversing
+            if openers_seen[-1] == closers.get(char):
+                openers_seen.pop()
+
+            # FAIL-FAST: if mis-match b/w last opener and current closer
+            else:
+                return False
+
+    # if traversal finished and stack ultimately empty, means balanced
+    return openers_seen == []
 
 if __name__ == '__main__':
     import doctest
