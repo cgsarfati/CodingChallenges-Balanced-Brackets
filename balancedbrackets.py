@@ -1,7 +1,7 @@
 """Does a given string have balanced pairs of brackets?
 
 Given a string, return True or False depending on whether the string
-contains balanced (), {}, [], and/or <>.
+contains balanced (), {}, [], and/or < >.
 
 Many of the same test cases from Balance Parens apply to the expanded
 problem, with the caveat that they must check all types of brackets.
